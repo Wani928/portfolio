@@ -479,6 +479,24 @@ section {
   color: var(--text-muted);
 }
 
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-decoration: none;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+  opacity: 0.8;
+}
+
+.project-link:hover {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
 /* ========== SKILLS ========== */
 .skills-container {
   display: grid;
@@ -623,9 +641,14 @@ footer {
 
 /* ========== SCROLL ANIMATIONS ========== */
 .reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.hidden {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.visible {
@@ -654,9 +677,9 @@ footer {
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
-    <div class="hero-tag">Robotics · AI · Embedded Systems</div>
+    <div class="hero-tag">Robotics · AI</div>
     <h1 class="hero-name">Wanangwa<br><span class="highlight">Nyasulu</span></h1>
-    <p class="hero-subtitle">Mechatronic engineer building intelligent robotic systems. Master's student in Mobile &amp; Autonomous Robotic Systems at Grenoble INP, France.</p>
+    <p class="hero-subtitle">Master's student in Mobile &amp; Autonomous Robotic Systems at Grenoble INP, France.</p>
     <div class="hero-links">
       <a href="#contact" class="primary">Get in touch</a>
       <a href="https://www.linkedin.com/in/wanangwa-nyasulu" target="_blank">LinkedIn ↗</a>
@@ -673,8 +696,8 @@ footer {
   </div>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>I've been fascinated by solving problems for as long as I can remember. At age nine in Malawi, I invented a solution that made soap float on water — it got a patent and an award from my school. That moment crystallised something: <strong>I wanted to be someone who creates things that didn't exist before.</strong></p>
-      <p>I studied <strong>Mechatronic Engineering at Stellenbosch University</strong> in South Africa, where I built everything from telepresence robots to solar monitoring systems. Now I'm completing my <strong>Master's in Mobile and Autonomous Robotic Systems</strong> at Grenoble INP – Ense3 in France, specialising in AI, navigation, perception, and control.</p>
+      <p>I've been fascinated by solving problems for as long as I can remember. At age nine in Malawi, I invented a solution that made soap float on water — it got an official patent and an little nice award from my school. That moment crystallised something: <strong>I wanted to be someone who creates things that didn't exist before.</strong></p>
+      <p>In my undergraduate degree in <strong>Mechatronic Engineering at Stellenbosch University</strong> in South Africa, I learned how to design and build robots. Now I'm completing my <strong>Master's in Mobile and Autonomous Robotic Systems</strong> at Grenoble INP – Ense3 in France, where I'm learning how to make them intelligent — specialising in AI, navigation, perception, and control.</p>
       <p>Currently, I'm a research intern at <strong>GIPSA-Lab</strong> working on Physics-Informed Neural Networks and reinforcement learning for aerial robotics, and I lead a team building an autonomous medical delivery drone for the <strong>European Robotics League</strong> competition.</p>
     </div>
     <div class="about-stats reveal">
@@ -713,8 +736,8 @@ footer {
       <div class="timeline-org">GIPSA-Lab · Grenoble, France</div>
       <ul class="timeline-desc">
         <li>Developing Physics-Informed Neural Networks (PINNs) for tension estimation in quadrotor slung-load systems</li>
-        <li>Building a reinforcement learning controller for full-system control with Gazebo and Simulink validation</li>
-        <li>Targeting real-platform transfer — work developed toward publication</li>
+        <li>Building a reinforcement learning controller for full-system control with validation in PyBullet</li>
+        <li>Targeting real-platform transfer with the work being developed toward publication</li>
       </ul>
     </div>
 
@@ -766,7 +789,7 @@ footer {
     <div class="project-card">
       <div class="project-icon">🚁</div>
       <div class="project-title">Autonomous Medical Delivery Drone</div>
-      <div class="project-desc">Building a full ROS2 navigation stack for GPS-denied autonomous flight — Visual SLAM, obstacle avoidance, target detection on NVIDIA Jetson. Team Lead for the European Robotics League competition.</div>
+      <div class="project-desc">Building a full ROS2 navigation stack for GPS-denied autonomous flight — Visual SLAM, obstacle avoidance, and path planning on NVIDIA Jetson. Team Lead for the European Robotics League competition.</div>
       <div class="project-tags">
         <span>ROS2</span><span>VSLAM</span><span>Python</span><span>Gazebo</span><span>Jetson</span>
       </div>
@@ -774,17 +797,18 @@ footer {
 
     <div class="project-card">
       <div class="project-icon">🧠</div>
-      <div class="project-title">PINNs for Aerial Slung-Load Systems</div>
-      <div class="project-desc">Research internship at GIPSA-Lab: developing physics-informed neural networks for tension estimation and an RL controller for quadrotor slung-load control. Sim-to-real transfer pipeline in Gazebo.</div>
+      <div class="project-title">PINNs and RL for Aerial Slung-Load Systems</div>
+      <div class="project-desc">Research internship at GIPSA-Lab: developing physics-informed neural networks for tension estimation and an RL controller for quadrotor slung-load control. RL Simulation will be done PyBullet.</div>
       <div class="project-tags">
-        <span>PyTorch</span><span>RL</span><span>Gazebo</span><span>Simulink</span><span>PINNs</span>
+        <span>PyTorch</span><span>RL</span><span>PyBullet</span><span>PINNs</span><span>Python</span>
       </div>
     </div>
 
     <div class="project-card">
       <div class="project-icon">🤖</div>
       <div class="project-title">Telepresence Robot</div>
-      <div class="project-desc">Independently designed and built a complete telepresence robot for people with quadriplegia. 8-month project spanning mechanical design, 3D printing, embedded software, PCB design, control, and mobile app. 95ms latency, 6-hour autonomy.</div>
+      <div class="project-desc">Independently designed and built a complete telepresence robot for people with quadriplegia. 8-month project spanning mechanical design, 3D printing, networking, embedded software, PCB design, control, and mobile app development. 95ms latency, 6-hour autonomy.</div>
+      <a href="https://www.linkedin.com/posts/wanangwa-nyasulu_robotics-assistivetechnologies-techforgood-activity-7271141456134758400-D6xI" target="_blank" class="project-link">Watch demo ↗</a>
       <div class="project-tags">
         <span>C++</span><span>CAD</span><span>PCB</span><span>UDP</span><span>Mobile App</span>
       </div>
@@ -793,7 +817,7 @@ footer {
     <div class="project-card">
       <div class="project-icon">👁️</div>
       <div class="project-title">RT-DETR Vision Transformer Optimisation</div>
-      <div class="project-desc">Achieved ≥50% mAP with 10× fewer queries than default. Multi-objective optimisation across inference latency, power consumption, and accuracy for edge deployment.</div>
+      <div class="project-desc">Achieved ≥50% mAP with 10× fewer queries than default. Multi-objective optimisation across inference latency, power consumption, and accuracy for edge deployment. Working towards publication.</div>
       <div class="project-tags">
         <span>PyTorch</span><span>Deep Learning</span><span>Docker</span><span>Linux</span>
       </div>
@@ -836,7 +860,7 @@ footer {
     <div class="skill-group">
       <div class="skill-group-title">Robotics & AI</div>
       <div class="skill-items">
-        <span>PyTorch</span><span>ROS2</span><span>Gazebo</span><span>OpenCV</span><span>Reinforcement Learning</span><span>Deep Learning</span>
+        <span>PyTorch</span><span>ROS2</span><span>Gazebo</span><span>Reinforcement Learning</span><span>Deep Learning</span>
       </div>
     </div>
     <div class="skill-group">
@@ -874,11 +898,6 @@ footer {
   </div>
   <div class="interests-grid reveal">
     <div class="interest-card">
-      <div class="interest-emoji">🌾</div>
-      <div class="interest-title">Agricultural Robotics</div>
-      <div class="interest-desc">Growing up in Malawi, where agriculture employs most of the population, I've seen firsthand how intelligent automation could transform livelihoods. Building robots for high-impact, real-world applications in agriculture is a long-term goal.</div>
-    </div>
-    <div class="interest-card">
       <div class="interest-emoji">🧠</div>
       <div class="interest-title">Robot Learning & Perception</div>
       <div class="interest-desc">How do we make robots truly understand their environment? I'm fascinated by reinforcement learning, vision transformers, and the sim-to-real transfer problem — bridging what works in simulation to the messiness of the real world.</div>
@@ -886,12 +905,12 @@ footer {
     <div class="interest-card">
       <div class="interest-emoji">🛠️</div>
       <div class="interest-title">Full-Stack Robotics</div>
-      <div class="interest-desc">I'm not just a software or hardware person — I love the full picture. From PCB design to deep learning, from 3D printing to ROS2 navigation stacks. Building complete systems that actually work is what excites me most.</div>
+      <div class="interest-desc">I'm not just a software or hardware person — I love the full picture. From PCB design to deep learning, from 3D printing to ROS2 navigation stacks. Building complete systems that functions well excites me!</div>
     </div>
     <div class="interest-card">
       <div class="interest-emoji">🎯</div>
       <div class="interest-title">Leadership & Team Building</div>
-      <div class="interest-desc">As Team Lead for the ERL competition, I assemble teams, set agendas, drive design decisions, and coordinate with external contributors. I believe the best technology comes from well-led, motivated teams.</div>
+      <div class="interest-desc">As Team Lead for the ERL competition, I manage the team, set agendas, drive design decisions, and coordinate with external contributors. I believe the best technology comes from well-led, motivated teams.</div>
     </div>
   </div>
 </section>
@@ -901,7 +920,7 @@ footer {
   <div class="section-header reveal">
     <div class="section-label">// Contact</div>
     <h2 class="section-title">Let's connect.</h2>
-    <p style="color: var(--text-dim); margin-top: 1rem; max-width: 500px;">Whether it's a PhD opportunity, an engineering role, or a collaboration — I'd love to hear from you.</p>
+    <p style="color: var(--text-dim); margin-top: 1rem; max-width: 500px;">Whether it's an engineering role, a PhD opportunity, or a collaboration — I'd love to hear from you.</p>
   </div>
   <div class="contact-links reveal">
     <a href="mailto:wanangwa.nyasulu@gmail.com">✉ wanangwa.nyasulu@gmail.com</a>
@@ -917,27 +936,18 @@ footer {
 </footer>
 
 <script>
-// Scroll reveal
+// Scroll reveal - hide elements first, then animate in
+document.querySelectorAll('.reveal').forEach(el => el.classList.add('hidden'));
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      entry.target.classList.remove('hidden');
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+}, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Navbar shadow on scroll
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('nav');
-  if (window.scrollY > 50) {
-    nav.style.boxShadow = '0 4px 30px #00000040';
-  } else {
-    nav.style.boxShadow = 'none';
-  }
-});
-</script>
-
-</body>
-</html>
+// Navbar shadow
